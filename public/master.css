@@ -1,0 +1,15 @@
+#wrapper{
+    background-color: #FFFFFF;
+}
+
+.actuator{
+    background-color: #F44336;
+}
+
+.sensor{
+    background-color: #F44336;
+}
+
+h2{
+    text-align: center;
+}

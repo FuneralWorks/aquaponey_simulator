@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Socket.io</title>
+    <script src="libs/angular/angular.js"></script>
+    <link rel="stylesheet" href="libs/angular-material/angular-material.css">
+    <link rel="stylesheet" href="master.css">
+    <script src = "libs/angular-animate/angular-animate.min.js"></script>
+    <script src = "libs/angular-aria/angular-aria.min.js"></script>
+    <script src = "libs/angular-material/angular-material.min.js"></script>
+    <script src = "libs/angular-messages/angular-messages.min.js"></script>
+    <script src = "libs/socket-io-client/socket.io.js"></script>
+    <script src = "app.js"></script>
+</head>
+
+<body ng-app="Socket.io" ng-controller="DataCtrl">
+    <div layout="row" id="wrapper">
+        <div layout = "column" layout-padding flex>
+            <h2>Sensors</h2>
+            <div flex class="sensor" >
+                <h3>Température : {{TempSensor.value}}°c</h3>
+                <p>Prend la température de l'eau et c'est chouette!</p>
+                <md-slider ng-model="TempSensor.value" min="{{TempSensor.min}}" max="{{TempSensor.max}}" class="md-primary"></md-slider>
+                <md-button class="md-raised" ng-click="setSensor('Temperature', TempSensor.value)">Refresh</md-button>
+                <p></p>
+            </div>
+            <div flex class="sensor">
+                <h3>Ph : {{PhSensor.value}}</h3>
+                <p>Mesure le Ph de l'eau et c'est bien!</p>
+                <md-slider ng-model="PhSensor.value" min="{{PhSensor.min}}" max="{{PhSensor.max}}" class="md-primary"></md-slider>
+                <md-button class="md-raised" ng-click="setSensor('pH', PhSensor.value)">Refresh</md-button>
+            </div>
+            <div flex class="sensor">
+                <h3>Ni : {{NiSensor.value}}</h3>
+                <p>Mesure le taux de Nitrites dans l'eau</p>
+                <md-slider ng-model="NiSensor.value" min="{{NiSensor.min}}" max="{{NiSensor.max}}" class="md-primary"></md-slider>
+                <md-button class="md-raised" ng-click="setSensor('Nitrites', NiSensor.value)">Refresh</md-button>
+            </div>
+
+        </div>
+
+        <div layout="column" layout-padding flex>
+            <h2>Actuators</h2>
+            <div flex class="actuator">
+                <h3>Pompe à eau</h3>
+                <p>Indique le bon fonctionnement de la pompe</p>
+                <md-switch ng-model="PompeActuator.value" ng-true-value="1" ng-false-value="0"></md-switch>
+                <md-button class="md-raised" ng-click="setSensor('Pompe', PompeActuator.value)">Refresh</md-button>
+            </div>
+            <div flex class="actuator">
+                <h3>Lumière</h3>
+                <p>Indique l'état actuel de la lumière</p>
+                <md-switch ng-model="LumiereActuator.value" ng-true-value="1" ng-false-value="0"></md-switch>
+                <md-button class="md-raised" ng-click="setSensor('Lumiere', LumiereActuator.value)">Refresh</md-button>
+            </div>
+            <div flex class="actuator">
+                <h3>Nourriture</h3>
+                <p>Indique si les poissons ont été nourri</p>
+                <md-switch ng-model="NourritureActuator.value" ng-true-value="1" ng-false-value="0"></md-switch>
+                <md-button class="md-raised" ng-click="setSensor('Nourriture', NourritureActuator.value)">Refresh</md-button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

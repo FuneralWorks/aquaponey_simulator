@@ -1,0 +1,11 @@
+{
+  "name": "aquaponey",
+  "main": "server.js",
+  "dependencies": {
+    "angular-material": "^1.0.8",
+    "jquery": "^2.2.3",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "socket.io": "latest"
+  }
+}
